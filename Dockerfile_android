@@ -26,7 +26,7 @@ RUN curl -L https://dl.google.com/android/repository/android-ndk-r21-linux-x86_6
     rm androidndk.zip && \
     mv /root/android-ndk* /root/ndk-bundle
 
-RUN apt install -y gradle dos2unix
+RUN apt install -y gradle dos2unix android-sdk-build-tools brotli jq
 RUN apt install -y openjdk-17-jdk
 
 # setup env vars and paths
