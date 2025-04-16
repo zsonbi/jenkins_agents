@@ -1,0 +1,26 @@
+FROM ubuntu:24.04
+
+# build-essential: compilers etc.
+# devscripts: make command etc.
+# java jdk: android sdk tools require it
+
+RUN apt-get update && apt-get install -y \
+    docker.io \
+    build-essential \
+    devscripts \
+    openjdk-8-jdk
+
+# install android sdk
+# download URL: https://developer.android.com/studio#command-tools
+ENV ANDROID_HOME=/root
+
+WORKDIR /srv/services/jenkins-agent
+
+# Install curl
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+
+# Copy custom startup script
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
