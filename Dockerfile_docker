@@ -25,11 +25,6 @@ RUN apt-get update
 
 RUN apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-
-# install android sdk
-# download URL: https://developer.android.com/studio#command-tools
-ENV ANDROID_HOME=/root
-
 WORKDIR /srv/services/jenkins-agent
 
 # Install curl
