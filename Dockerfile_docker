@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
     docker.io \
     build-essential \
     devscripts \
-    openjdk-11-jdk
+    openjdk-17-jdk
 
 # install android sdk
 # download URL: https://developer.android.com/studio#command-tools
