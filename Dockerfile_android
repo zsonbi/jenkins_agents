@@ -30,6 +30,11 @@ RUN curl -L https://dl.google.com/android/repository/android-ndk-r21-linux-x86_6
 RUN apt install -y gradle dos2unix android-sdk-build-tools brotli jq
 RUN apt install -y openjdk-17-jdk
 
+# Install Node.js and npm
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs && \
+    rm -rf /var/lib/apt/lists/*
+
 # setup env vars and paths
 ENV CONTAINER=true \
     ANDROID_SDK_PATH=/root \
