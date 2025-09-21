@@ -1,0 +1,18 @@
+services:
+  runner:
+    image: zsonbi/jenkins-agent:latest-android
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      JENKINS_URL: ${JENKINS_URL}
+      JENKINS_SECRET: ${JENKINS_SECRET}
+      JENKINS_AGENT_NAME: ${JENKINS_AGENT_NAME}
+      KEYSTORE_SECRET: ${KEYSTORE_SECRET}
+      APPSTORE_GRAPHENEOS: ${APPSTORE_GRAPHENEOS}
+    volumes:
+      # workdir
+      - ./workdir:/srv/services/jenkins-agent
+      # Mount the docker socket in case it is needed
+      - /var/run/docker.sock:/var/run/docker.sock
+      # This is where you put the certificates if needed
+      - ./certs:/certs:r
