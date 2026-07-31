@@ -28,7 +28,7 @@ RUN curl -L https://dl.google.com/android/repository/android-ndk-r21-linux-x86_6
     mv /root/android-ndk* /root/ndk-bundle
 
 RUN apt install -y gradle dos2unix android-sdk-build-tools brotli jq
-RUN apt install -y openjdk-17-jdk
+RUN apt install -y openjdk-21-jdk
 
 # Install Node.js and npm
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
